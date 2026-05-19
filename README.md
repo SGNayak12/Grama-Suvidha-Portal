@@ -1,63 +1,140 @@
-# Grama-Suvidha Portal 🏛️
+# Grama-Suvidha Portal
 
-A Civic-Tech Android application designed to bridge the gap between Panchayat officials and citizens. It promotes transparency in village development projects by allowing citizens to track progress, provide feedback, and report issues.
+Grama-Suvidha Portal is a native Android application for transparent village development tracking. It helps citizens view Panchayat project progress, budgets, satisfaction status, and issue updates from a simple mobile dashboard.
 
-## 🚀 Features
+## Project Details
+| Project Name | Grama-Suvidha Portal |
+| Platform | Android |
+| App Type | Native Android application |
+| Package Name | `com.gramasuvidha.portal` |
+| Version Name | `1.0` |
+| Version Code | `1` |
+| Minimum SDK | Android 10 / API 29 |
+| Target SDK | Android 15 / API 35 |
+| Primary Language | Kotlin |
+| UI Framework | Jetpack Compose |
+| Repository | `https://github.com/SGNayak12/Grama-Suvidha-Portal` |
 
-### Citizen Side
-- **Project Tracking**: View all development projects with status (Ongoing, Completed, Delayed).
-- **Progress Visualization**: Animated progress bars and Before/After image galleries.
-- **Project Timeline**: Detailed history of project updates.
-- **Citizen Reviews**: Rate projects (1-5 stars) and leave comments.
-- **Issue Reporting**: Report problems like poor quality or delays directly to officials.
-- **Community Satisfaction Meter**: Real-time visual sentiment based on citizen ratings.
-- **Multilingual Support**: Available in English and Kannada.
-- **Offline-First**: Access all information even without internet connectivity.
+## GitHub Repository Requirement
 
-### Admin Side (Panchayat Officials)
-- **Secure Login**: Simple local authentication for demo purposes.
-- **Admin Dashboard**: Real-time stats on projects and complaints.
-- **Project Management**: Add new projects or edit existing ones.
-- **Progress Updates**: Update progress percentages and status.
-- **Timeline Management**: Add official updates to the project timeline.
-- **Complaint Management**: View and resolve citizen reports.
+Before final submission, make sure the GitHub repository is public and opens correctly without login:
 
-## 🏗️ Architecture
+```text
+https://github.com/SGNayak12/Grama-Suvidha-Portal
+```
 
-The app follows **Clean Architecture** principles with a focus on **MVVM (Model-View-ViewModel)**.
+Submission check:
 
-- **UI Layer**: Jetpack Compose for a modern, reactive UI.
-- **Domain Layer**: Repository pattern to abstract data sources.
-- **Data Layer**: 
-    - **Room Database**: Local persistence for projects, reviews, and complaints.
-    - **DataStore**: Preferences for language and session management.
-    - **WorkManager**: Background synchronization tasks.
+- Repository link is included in this README.
+- Repository visibility is set to public.
+- Project files are pushed to the repository.
+- README, Gradle files, Android manifest, Kotlin source code, and resources are visible on GitHub.
 
-## 💾 Database Schema (Room)
+## Features
 
-1. **Projects**: Stores project details, budget, status, and progress.
-2. **Reviews**: Stores citizen ratings and comments linked to projects.
-3. **Complaints**: Stores reported issues and their resolution status.
-4. **Timeline Updates**: Stores official progress updates for project timelines.
+### Citizen Dashboard
 
-## 🛠️ Tech Stack
+- View village development projects.
+- Track project status such as Ongoing, Completed, and Delayed.
+- See budget information and completion percentage.
+- View public satisfaction rating.
+- Read the latest project update.
+- Report a civic issue from the app interface.
 
-- **Kotlin** & **Jetpack Compose**
-- **Dagger Hilt** (Dependency Injection)
-- **Room Database** (Local Storage)
-- **Retrofit & GSON** (Mock API Handling)
-- **Coil** (Image Loading)
-- **WorkManager** (Background Sync)
+### Panchayat/Admin View
 
-## 📖 How to Run
+- Switch to an admin-oriented view.
+- View the same project list with update actions.
+- Use the dashboard as a foundation for official progress updates.
+
+## Current App Screens
+
+The current Android app includes:
+
+- Main project dashboard
+- Project summary cards
+- Project progress indicators
+- Budget and satisfaction metrics
+- Citizen issue desk section
+- Admin mode toggle
+
+## Tech Stack
+
+- Kotlin
+- Jetpack Compose
+- Material 3
+- Android Gradle Plugin
+- Gradle Wrapper
+
+## Project Structure
+
+```text
+Grama-Suvidha-Portal/
+├── app/
+│   ├── build.gradle.kts
+│   ├── proguard-rules.pro
+│   └── src/main/
+│       ├── AndroidManifest.xml
+│       ├── java/com/gramasuvidha/portal/MainActivity.kt
+│       └── res/
+├── gradle/
+│   ├── libs.versions.toml
+│   └── wrapper/
+├── build.gradle.kts
+├── settings.gradle.kts
+├── gradle.properties
+└── README.md
+```
+
+## How to Run
 
 1. Clone the repository.
-2. Open in **Android Studio Ladybug (or newer)**.
-3. Sync Gradle and run on an emulator/device.
-4. **Admin Access**:
-   - Go to **Settings** -> **Login as Admin**.
-   - **Username**: `admin`
-   - **Password**: `admin123`
+2. Open the project in Android Studio Ladybug or newer.
+3. Let Android Studio sync Gradle.
+4. Select the `app` run configuration.
+5. Run the app on an emulator or physical Android device.
 
----
-*Built as a civic-tech demo project for internship/portfolio showcase.*
+## APK Location
+
+After a successful release build, the APK file is generated here:
+
+```text
+app/build/outputs/apk/release/app-release.apk
+```
+
+After a successful debug build, the APK file is generated here:
+
+```text
+app/build/outputs/apk/debug/app-debug.apk
+```
+
+## Build Commands
+
+Release APK:
+
+```bash
+./gradlew assembleRelease
+```
+
+Debug APK:
+
+```bash
+./gradlew assembleDebug
+```
+
+## Downloadable APK Note
+
+The APK is a generated build artifact, so it will exist only after a successful Android build. Once generated, use this file for submission or sharing:
+
+```text
+app/build/outputs/apk/release/app-release.apk
+```
+
+If you build from Android Studio, open:
+
+```text
+app/build/outputs/apk/
+```
+
+and choose the required `debug` or `release` APK.
+
