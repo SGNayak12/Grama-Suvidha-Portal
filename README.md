@@ -1,67 +1,73 @@
-# Grama-Suvidha Portal
+# Android App Development using GenAI - Grama-Suvidha Portal
 
-Grama-Suvidha Portal is a native Android application for transparent village development tracking. It helps citizens view Panchayat project progress, budgets, satisfaction status, and issue updates from a simple mobile dashboard.
+Grama-Suvidha Portal is a native Android application designed as a digital progress tracker for village-level development works. The app acts like a transparent "Digital Notice Board" where citizens can view local infrastructure projects, understand their current progress, and share feedback.
 
-## Project Details
+## 1. Problem Statement
 
-| Field | Details |
-| --- | --- |
-| Project Name | Grama-Suvidha Portal |
-| Platform | Android |
-| App Type | Native Android application |
-| Package Name | `com.gramasuvidha.portal` |
-| Version Name | `1.0` |
-| Version Code | `1` |
-| Minimum SDK | Android 10 / API 29 |
-| Target SDK | Android 15 / API 35 |
-| Primary Language | Kotlin |
-| UI Framework | Jetpack Compose |
-| Repository | `https://github.com/SGNayak12/Grama-Suvidha-Portal` |
+There is often a transparency gap in rural infrastructure development. Citizens in a Panchayat are usually unaware of the progress of local works such as community hall construction, borewell installation, road repairs, pond rejuvenation, and drainage improvements.
 
-## GitHub Repository Requirement
+This lack of information reduces public trust and community ownership. A mobile platform is needed to visualize "Digital Progress" for village-level assets so every citizen can understand where development stands.
 
-Before final submission, make sure the GitHub repository is public and opens correctly without login:
+## 2. Project Vision
 
-```text
-https://github.com/SGNayak12/Grama-Suvidha-Portal
-```
+Grama-Suvidha is a transparency-focused project tracker for Panchayat-level development. It lists government-funded projects in a local area and shows important information such as:
 
-Submission check:
+- Project name
+- Village/location
+- Budget
+- Current status
+- Completion percentage
+- Latest update
+- Citizen satisfaction rating
+- Issue reporting option
 
-- Repository link is included in this README.
-- Repository visibility is set to public.
-- Project files are pushed to the repository.
-- README, Gradle files, Android manifest, Kotlin source code, and resources are visible on GitHub.
+The goal is to make project information simple, visible, and accessible to villagers.
 
-## Features
+## 3. App Usage and User Flow
 
-### Citizen Dashboard
+### Project List
 
-- View village development projects.
-- Track project status such as Ongoing, Completed, and Delayed.
-- See budget information and completion percentage.
-- View public satisfaction rating.
-- Read the latest project update.
-- Report a civic issue from the app interface.
+Users can view all local development works in one place. Example projects include:
 
-### Panchayat/Admin View
+- Main Road Repair
+- Borewell Installation
+- Drinking Water Pipeline
+- School Building Repair
+- Village Drainage Work
 
-- Switch to an admin-oriented view.
-- View the same project list with update actions.
-- Use the dashboard as a foundation for official progress updates.
+### Progress View
 
-## Current App Screens
+Each project card shows a progress indicator and project status, such as:
 
-The current Android app includes:
+- Ongoing
+- Completed
+- Delayed
 
-- Main project dashboard
-- Project summary cards
-- Project progress indicators
-- Budget and satisfaction metrics
-- Citizen issue desk section
-- Admin mode toggle
+The progress bar visually represents the stored completion percentage.
 
-## Tech Stack
+### Citizen Feedback
+
+The app includes a citizen issue desk concept where users can report project-related issues. The app also shows a public satisfaction score to represent citizen feedback.
+
+### Language Support
+
+The project vision includes English and Kannada support so every villager can participate comfortably. The current implementation is structured as a foundation for this multilingual flow.
+
+## 4. Key Features
+
+- Native Android app built with Kotlin.
+- Modern UI built using Jetpack Compose.
+- Panchayat project dashboard.
+- Project progress cards.
+- Budget and completion percentage display.
+- Citizen satisfaction display.
+- Issue reporting entry point.
+- Admin mode toggle for official project updates.
+- Offline-friendly mock project data foundation.
+
+## 5. Technical Implementation
+
+### Android Stack
 
 - Kotlin
 - Jetpack Compose
@@ -69,7 +75,84 @@ The current Android app includes:
 - Android Gradle Plugin
 - Gradle Wrapper
 
-## Project Structure
+### UI Layer
+
+The app uses Jetpack Compose for a clean, reactive interface. The main dashboard is implemented in:
+
+```text
+app/src/main/java/com/gramasuvidha/portal/MainActivity.kt
+```
+
+### Mock Data Structure
+
+The current app uses local mock project data through a Kotlin data model:
+
+```kotlin
+private data class Project(
+    val title: String,
+    val village: String,
+    val status: String,
+    val budget: String,
+    val progress: Float,
+    val satisfaction: String,
+    val nextUpdate: String
+)
+```
+
+Each project stores:
+
+- `title`: Name of the development work
+- `village`: Village or local area name
+- `status`: Current project state
+- `budget`: Allocated budget
+- `progress`: Completion value from `0.0` to `1.0`
+- `satisfaction`: Citizen rating summary
+- `nextUpdate`: Latest public update
+
+This mock structure can later be moved to a local JSON file or Room database for offline caching.
+
+### Offline Viewing
+
+The app currently uses local in-app mock data, so the project dashboard can be viewed without a live internet connection. A future production version can extend this with Room or DataStore to cache project lists after syncing from an API.
+
+### Progress Bar Logic
+
+Project progress is represented using a Float value:
+
+```text
+0.68 = 68% complete
+1.00 = 100% complete
+```
+
+The Compose progress bar reads this value and displays the matching completion percentage on the screen.
+
+### Image Loading Plan
+
+The project vision includes mock before/after project site photos. A production version can use Coil or Glide to load these images from local assets, a mock API, or cached remote URLs.
+
+## 6. Impact Goals
+
+### Good Governance
+
+The app improves transparency and accountability by making Panchayat project details visible to citizens.
+
+### Citizen Engagement
+
+Citizens can move from being passive residents to active "Progress Pilots" who monitor and respond to local development work.
+
+### Infrastructure Quality
+
+Public visibility and peer monitoring can encourage better work quality, timely completion, and more responsible project execution.
+
+## 7. Success Criteria
+
+- The app supports offline viewing using local mock project data.
+- The progress bar accurately reflects the stored project percentage.
+- The app architecture supports English and Kannada expansion.
+- The mock project data structure is documented.
+- The app clearly shows project status, budget, progress, satisfaction, and issue reporting.
+
+## 8. Project Structure
 
 ```text
 Grama-Suvidha-Portal/
@@ -89,107 +172,28 @@ Grama-Suvidha-Portal/
 `-- README.md
 ```
 
-## How to Run
+## 9. Running the App
 
-1. Clone the repository.
-2. Open the project in Android Studio Ladybug or newer.
-3. Let Android Studio sync Gradle.
-4. Select the `app` run configuration.
-5. Run the app on an emulator or physical Android device.
-
-## APK Location
-
-After a successful release build, the APK file is generated here:
-
-```text
-app/build/outputs/apk/release/app-release.apk
-```
-
-After a successful debug build, the APK file is generated here:
-
-```text
-app/build/outputs/apk/debug/app-debug.apk
-```
-
-## Build Commands
-
-Release APK:
-
-```bash
-./gradlew assembleRelease
-```
-
-Debug APK:
+Build the debug APK:
 
 ```bash
 ./gradlew assembleDebug
 ```
 
-## Downloadable APK Note
-
-The APK is a generated build artifact, so it will exist only after a successful Android build. Once generated, use this file for submission or sharing:
-
-```text
-app/build/outputs/apk/release/app-release.apk
-```
-
-The debug APK generated by GitHub Actions is also installable:
+The generated APK is created at:
 
 ```text
 app/build/outputs/apk/debug/app-debug.apk
 ```
 
-If you build from Android Studio, open:
+Build the release APK:
 
-```text
-app/build/outputs/apk/
+```bash
+./gradlew assembleRelease
 ```
 
-and choose the required `debug` or `release` APK.
-
-## Download APK from GitHub Actions
-
-This repository includes a GitHub Actions workflow that builds the debug APK automatically.
-
-Steps:
-
-1. Push the latest code to GitHub.
-2. Open the repository on GitHub.
-3. Go to the **Actions** tab.
-4. Open the **Build Android APK** workflow.
-5. Run the workflow manually, or wait for it to run after a push.
-6. Open the completed workflow run.
-7. Download the artifact named:
+The generated release APK is created at:
 
 ```text
-Grama-Suvidha-Portal-debug-apk
+app/build/outputs/apk/release/app-release.apk
 ```
-
-The downloaded ZIP contains the installable APK:
-
-```text
-app-debug.apk
-```
-
-## Submission Completion Checklist
-
-- Project details are complete and accurate.
-- GitHub repository link is included.
-- GitHub repository is public and working.
-- Android package name is configured.
-- App name and launcher icon are configured.
-- Android manifest is present.
-- Main activity source code is present.
-- README includes APK location.
-- README includes build/run instructions.
-- GitHub Actions workflow builds and uploads a downloadable APK.
-- APK file is generated before final submission.
-
-## Final Submission Files
-
-For a complete project submission, include:
-
-- Public GitHub repository link
-- Generated APK file
-- Updated README file
-- Any required project report or presentation requested by the evaluator
